@@ -6,9 +6,9 @@ python manage.py collectstatic --no-input
 
 python manage.py migrate
 
-if [ "$CREATE_SUPERUSER" = "True" ]; then
-    python manage.py createsuperuser --no-input || true
-fi
+# if [ "$CREATE_SUPERUSER" = "True" ]; then
+#     python manage.py createsuperuser --no-input || true
+# fi
 
 # python manage.py shell << END
 # from django.contrib.auth import get_user_model
