@@ -11,10 +11,10 @@ class productSerializer(serializers.ModelSerializer):
                 "read_only":True
             }
         }
-        def get_image(self, obj):
+    def get_image(self, obj):
             if obj.image:
                 return obj.image.url
-            return None
+            return None    
 
 class categorySerializer(serializers.ModelSerializer):
     class Meta:
