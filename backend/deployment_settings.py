@@ -25,28 +25,28 @@ MIDDLEWARE = [
 ]
 
 
-# CLOUDINARY_STORAGE = {
-#     "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
-#     "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
-#     "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
-# }
-
-
-# CLOUDINARY_URL = (
-#     f"cloudinary://{os.getenv('CLOUDINARY_API_KEY')}:"
-#     f"{os.getenv('CLOUDINARY_API_SECRET')}@"
-#     f"{os.getenv('CLOUDINARY_CLOUD_NAME')}"
-# )
-
-
-STORAGES={
-    "default":{
-        "BACKEND":"django.core.files.storage.FileSystemStorage"
-    },
-    "staticfiles":{
-        "BACKEND":"whitenoise.storage.CompressedStaticFilesStorage",
-    }
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
+    "API_KEY": os.getenv("CLOUDINARY_API_KEY"),
+    "API_SECRET": os.getenv("CLOUDINARY_API_SECRET"),
 }
+
+
+CLOUDINARY_URL = (
+    f"cloudinary://{os.getenv('CLOUDINARY_API_KEY')}:"
+    f"{os.getenv('CLOUDINARY_API_SECRET')}@"
+    f"{os.getenv('CLOUDINARY_CLOUD_NAME')}"
+)
+
+
+# STORAGES={
+#     "default":{
+#         "BACKEND":"django.core.files.storage.FileSystemStorage"
+#     },
+#     "staticfiles":{
+#         "BACKEND":"whitenoise.storage.CompressedStaticFilesStorage",
+#     }
+# }
 
 DATABASES={
     "default":dj_database_url.config(

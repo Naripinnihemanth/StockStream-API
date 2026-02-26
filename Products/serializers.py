@@ -2,7 +2,7 @@ from rest_framework import serializers
 from .models import *
 
 class productSerializer(serializers.ModelSerializer):
-    # image = serializers.SerializerMethodField()
+    image = serializers.SerializerMethodField()
     class Meta:
         model=ProductModel
         fields=["id","title","description","category","price","image","currency","stock","created_at","descount","ratting","color","brand","slug","views"]
@@ -11,10 +11,10 @@ class productSerializer(serializers.ModelSerializer):
                 "read_only":True
             }
         }
-    # def get_image(self, obj):
-    #         if obj.image:
-    #             return obj.image.url
-    #         return None    
+    def get_image(self, obj):
+            if obj.image:
+                return obj.image.url
+            return None    
 
 class categorySerializer(serializers.ModelSerializer):
     class Meta:
