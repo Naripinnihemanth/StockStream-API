@@ -1,9 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
+from cloudinary.models import CloudinaryField
+
 class custemUserModel(models.Model):
     auther=models.ForeignKey(User,on_delete=models.CASCADE,related_name="personal_data")
-    profile=models.ImageField(upload_to="profiles/",default="../media/constents/unknown.jpeg")
+    image = CloudinaryField("image")
+    # profile=models.ImageField(upload_to="profiles/",default="../media/constents/unknown.jpeg")
     bio=models.TextField(max_length=100,default="")
     def __str__(self):
         return self.auther.username
