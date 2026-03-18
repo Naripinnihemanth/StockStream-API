@@ -78,3 +78,10 @@ class incView(generics.RetrieveUpdateAPIView):
     serializer_class=incSerializer
     permission_classes=[AllowAny]
     
+
+class CategoryProductsView(generics.ListAPIView):
+    serializer_class=productSerializer
+    permission_classes=[AllowAny]
+    def get_queryset(self):
+        pk = self.kwargs.get("pk")
+        return ProductModel.objects.filter(category=pk)

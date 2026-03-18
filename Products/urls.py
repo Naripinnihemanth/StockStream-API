@@ -11,4 +11,6 @@ urlpatterns=[
     path("setquantity/<int:pk>/",setQuantityView.as_view(),name="setquantity"),
     path("deletecart/<int:pk>/",deleteCartView.as_view(),name="deletecart"),
     path("viewsincreas/<int:pk>/",incView.as_view(),name="increaseviews"),
+    path("categoryproducts/<int:pk>/",CategoryProductsView.as_view(),name="categoryproducts"),
+    
 ]
