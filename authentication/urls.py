@@ -2,8 +2,8 @@ from django.urls import path
 from .views import *
 urlpatterns=[
     path("",authView.as_view(),name="register"),
-    path("api/setProfile/",profileView.as_view(),name="setProfile"),
-    path("api/getProfile/",getProfile.as_view(),name="getProfile"),
+    # path("api/setProfile/",profileView.as_view(),name="setProfile"),
+    # path("api/getProfile/",getProfile.as_view(),name="getProfile"),
     path("api/sethistory/",setHistory.as_view(),name="sethistory"),
     path("api/gethistory/",getHistory.as_view(),name="gethistory"),
     path("api/deletehistory/<int:pk>/",deleteHistory.as_view(),name="delethistory"),

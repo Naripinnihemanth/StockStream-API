@@ -2,21 +2,21 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import *
 
-class ProfileSerializer(serializers.ModelSerializer):
-    profile = serializers.SerializerMethodField()
+# class ProfileSerializer(serializers.ModelSerializer):
+#     profile = serializers.SerializerMethodField()
 
-    class Meta:
-        model=custemUserModel
-        fields=["auther","profile","bio"]
-        extra_kwargs={
-            "auther":{
-                "read_only":True
-            }
-        }
-    def get_image(self, obj):
-            if obj.profile:
-                return obj.profile.url
-            return None 
+#     class Meta:
+#         model=custemUserModel
+#         fields=["auther","profile","bio"]
+#         extra_kwargs={
+#             "auther":{
+#                 "read_only":True
+#             }
+#         }
+#     def get_image(self, obj):
+#             if obj.profile:
+#                 return obj.profile.url
+#             return None 
     
 
     

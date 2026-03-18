@@ -32,7 +32,7 @@ class RecommendationML:
 
         self.model.fit(self.X)
 
-    def recommend(self, user, k=15):
+    def recommend(self, user, k=5):
 
         if self.X is None or self.products is None:
             return ProductModel.objects.all().order_by("-id")[:k]

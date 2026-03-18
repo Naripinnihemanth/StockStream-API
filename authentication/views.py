@@ -18,22 +18,22 @@ class authView(generics.ListCreateAPIView):
     permission_classes=[AllowAny]
 
 
-class profileView(generics.CreateAPIView):
-    queryset=custemUserModel.objects.all()
-    serializer_class=ProfileSerializer
-    permission_classes=[IsAuthenticated]
-    parser_classes = [MultiPartParser, FormParser]
+# class profileView(generics.CreateAPIView):
+#     queryset=custemUserModel.objects.all()
+#     serializer_class=ProfileSerializer
+#     permission_classes=[IsAuthenticated]
+#     parser_classes = [MultiPartParser, FormParser]
 
 
-    def perform_create(self, serializer):
-        custemUserModel.objects.filter(
-            auther=self.request.user
-        ).delete()
+#     def perform_create(self, serializer):
+#         custemUserModel.objects.filter(
+#             auther=self.request.user
+#         ).delete()
 
-        if serializer.is_valid():
-            serializer.save(auther=self.request.user)
-        else:
-            print(serializer.errors)
+#         if serializer.is_valid():
+#             serializer.save(auther=self.request.user)
+#         else:
+#             print(serializer.errors)
 
 class getUser(generics.ListAPIView):
     serializer_class=userSerializer
@@ -44,12 +44,12 @@ class getUser(generics.ListAPIView):
         data=User.objects.filter(id=user)
         return data
 
-class getProfile(generics.ListAPIView):
-    serializer_class=ProfileSerializer
-    permission_classes=[IsAuthenticated]
+# class getProfile(generics.ListAPIView):
+#     serializer_class=ProfileSerializer
+#     permission_classes=[IsAuthenticated]
     
-    def get_queryset(self):
-        return custemUserModel.objects.filter(auther=self.request.user)
+#     def get_queryset(self):
+#         return custemUserModel.objects.filter(auther=self.request.user)
     
 class setHistory(generics.ListCreateAPIView):
     queryset=historyModel.objects.all()
