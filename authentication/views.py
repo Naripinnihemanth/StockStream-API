@@ -92,6 +92,7 @@ class RecommendProducts(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
+        ml_engine.train()
         return ml_engine.recommend(self.request.user)
 
 
