@@ -1,7 +1,6 @@
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.neighbors import NearestNeighbors
-
 from Products.models import *
 from .models import historyModel
 
@@ -32,7 +31,7 @@ class RecommendationML:
 
         self.model.fit(self.X)
 
-    def recommend(self, user, k=5):
+    def recommend(self, user, k=10):
 
         if self.X is None or self.products is None:
             return ProductModel.objects.all().order_by("-id")[:k]

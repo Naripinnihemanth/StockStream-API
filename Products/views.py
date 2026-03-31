@@ -72,7 +72,6 @@ class deleteCartView(generics.DestroyAPIView):
     queryset=cartModel.objects.all()
     serializer_class=cartSerializer
     permission_classes=[IsAuthenticated]
-
 class incView(generics.RetrieveUpdateAPIView):
     queryset=ProductModel.objects.all()
     serializer_class=incSerializer
